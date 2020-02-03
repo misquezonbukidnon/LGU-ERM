@@ -174,7 +174,7 @@ class EmployeeController extends Controller
             $image = $request->file('image');
             $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();          
             $resize_image = Image::make($image->getRealPath());
-            $resize_image->resize(800, 800)->save('/uploads/employee/'.$image_name);
+            $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
             $data->image = $image_name;
         } else {
                 return $request;

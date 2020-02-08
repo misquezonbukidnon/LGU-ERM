@@ -42,7 +42,7 @@
         <a href="/home">
          {{--  <h5 style="color:#525E5F; margin-left: 15px;"><strong>JsonTrader</strong></h5> --}}
           <img class="logo" src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 50px; width:50px;">
-          <p style="margin-left: 1em;"><i>ERMS</i></p>
+          {{-- <p style="margin-left: 1em;"><i>ERMS</i></p> --}}
           <img class="logo-mini" src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 50px; width:50px;">
         </a>
         <button class="t-header-toggler t-header-desk-toggler d-none d-lg-block">

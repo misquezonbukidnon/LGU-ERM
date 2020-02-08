@@ -34,49 +34,49 @@
 										<div class="col-sm-4">
 											<div class="form-group">
 												<label for="oldIdnumber"><strong><u>ID Number:</u> </strong></label>
-												<br>{{ $employees->employee_number}}
+												<br><i>{{ $employees->employee_number}}</i>
 											</div>
 											<div class="form-group">
 												<label for="oldLastname"><strong><u>Lastname:</u> </strong></label>
-												<br>{{ $employees->lastname }}
+												<br><i>{{ $employees->lastname }}</i>
 											</div>
 											<div class="form-group">
 												<label for="oldFirstname"><strong><u>Firstname:</u> </strong></label>
-												<br>{{ $employees->firstname }}
+												<br><i>{{ $employees->firstname }}</i>
 											</div>
 											<div class="form-group">
 												<label for="oldMiddlename"><strong><u>Middlename:</u> </strong></label>
-												<br>{{ $employees->middlename }}
+												<br><i>{{ $employees->middlename }}</i>
 											</div>
 											<div class="form-group">
 												<label for="oldSuffix"><strong><u>Suffix:</u> </strong></label>
-												<br>{{ $employees->suffix }}
+												<br><i>{{ $employees->suffix }}</i>
 											</div>											
 											<div class="form-group">
 												<label for="oldPosition"><strong><u>Position:</u> </strong></label>
-												<br>{{ $employees->positions->name }}
+												<br><i>{{ $employees->positions->name }}</i>
 											</div>
 										</div>
 										<div class="col-sm-4">											
 											<div class="form-group">
 												<label for="oldOffice"><strong><u>Office:</u> </strong></label>
-												<br>{{ $employees->offices->name }}
+												<br><i>{{ $employees->offices->name }}</i>
 											</div>
 											<div class="form-group">
 												<label for="oldAddress"><strong><u>Address:</u> </strong></label>
-												<br>{{ $employees->address }}
+												<br><i>{{ $employees->address }}</i>
 											</div>
                                             <div class="form-group">
 												<label for="oldContactnumber"><strong><u>Contact Number:</u> </strong></label>
-												<br>{{ $employees->contact_number }}
+												<br><i>{{ $employees->contact_number }}</i>
 											</div>
 											<div class="form-group">
 												<label for="oldEmergency"><strong><u>Emergency Contact Person:</u> </strong></label>
-												<br>{{ $employees->emergency_contact_person }}
+												<br><i>{{ $employees->emergency_contact_person }}</i>
 											</div>
 											<div class="form-group">
 												<label for="oldEcpcontact"><strong><u>Contact Number:</u> </strong></label>
-												<br>{{ $employees->ecp_contact_number }}
+												<br><i>{{ $employees->ecp_contact_number }}</i>
 											</div>
 										</div>
 									</div>

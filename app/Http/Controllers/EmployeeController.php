@@ -26,23 +26,23 @@ class EmployeeController extends Controller
         $employees = Employee::with('offices', 'positions', 'statuses')->get();
         $offices = Office::all();
         $positions = Position::all();
-        $statuses = Status::all();  
+        $statuses = Status::all();
         return view('employee.create',compact('employees', 'offices','positions', 'statuses'));
     }
 
     Public function store(Request $request){
 
-        
-        $employee_number = $request->input('employee_number');        
+
+        $employee_number = $request->input('employee_number');
         $input_2 = $request->input('lastname');
         $ucword_2 = ucwords($input_2);
         $input_3 = $request->input('firstname');
         $ucword_3 = ucwords($input_3);
         $input_4 = $request->input('middlename');
         $ucword_4 = ucwords($input_4);
-        $suffix = $request->input('suffix'); 
-        $positions_id = $request->input('positions_id'); 
-        $offices_id = $request->input('offices_id'); 
+        $suffix = $request->input('suffix');
+        $positions_id = $request->input('positions_id');
+        $offices_id = $request->input('offices_id');
         $input_5 = $request->input('address');
         $ucword_5 = ucwords($input_5);
         $input_6 = $request->input('contact_number');
@@ -51,7 +51,7 @@ class EmployeeController extends Controller
         $ucword_7 = ucwords($input_7);
         $input_8 = $request->input('ecp_contact_number');
         $ucword_8 = ucwords($input_8);
-        $statuses_id = $request->input('statuses_id'); 
+        $statuses_id = $request->input('statuses_id');
         $query = Employee::where('employee_number', '=', $employee_number)->first();
 
         /*
@@ -62,30 +62,30 @@ class EmployeeController extends Controller
             flash('Oops! '. $employee_number.' already exist from our records.')->error();
             return back()->withInput();
         }else{
-            $data = new Employee;         	
+            $data = new Employee;
             $data->employee_number = $employee_number;
-            $data->lastname = $ucword_2; 
+            $data->lastname = $ucword_2;
             $data->firstname = $ucword_3;
             $data->middlename = $ucword_4;
-            $data->suffix = $suffix;  
-            $data->positions_id = $positions_id; 
+            $data->suffix = $suffix;
+            $data->positions_id = $positions_id;
             $data->offices_id = $offices_id;
-            $data->address = $ucword_5; 
+            $data->address = $ucword_5;
             $data->contact_number = $ucword_6;
-            $data->emergency_contact_person = $ucword_7;         
+            $data->emergency_contact_person = $ucword_7;
             $data->ecp_contact_number = $ucword_8;
-            $data->statuses_id = $statuses_id;  
+            $data->statuses_id = $statuses_id;
 
              /*
                 Save Image
             */
-                                    
-            $this->validate($request, [ 
+
+            $this->validate($request, [
                 'image' => '
                     required|image|mimes:jpg,jpeg,png|max:20000']);
-            if ($request->hasfile('image')) { 
+            if ($request->hasfile('image')) {
                 $image = $request->file('image');
-                $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();          
+                $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
                 $resize_image = Image::make($image->getRealPath());
                 $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
                 $data->image = $image_name;
@@ -94,7 +94,7 @@ class EmployeeController extends Controller
                     $data->image = '';
                 }
 
-            // if ($request->hasfile('image')) {                
+            // if ($request->hasfile('image')) {
             //     $file = $request->file('image');
             //     $extension = $file->getClientOriginalExtension();
             //     $filename = $data->lastname.'-'.$data->firstname. '.' . $extension;
@@ -104,22 +104,22 @@ class EmployeeController extends Controller
             //     return $request;
             //     $data->image = '';
             // }
-        
+
             $data->save();
-            	
+
             flash($employee_number.' has been successfully recorded to database!')->success();
             return back()->withInput();
-        }    
-    	
+        }
+
     }
 
-        
+
     /*
     | Edit - Employee
     */
     Public function edit($id){
 
-        $employees = Employee::findOrFail($id);        
+        $employees = Employee::findOrFail($id);
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();
@@ -132,8 +132,8 @@ class EmployeeController extends Controller
 
     Public function update(Request $request, $id){
 
-                       
-        $employee_number = $request->input('employee_number');        
+
+        $employee_number = $request->input('employee_number');
         $input_2 = $request->input('lastname');
         $ucword_2 = ucwords($input_2);
         $input_3 = $request->input('firstname');
@@ -141,8 +141,8 @@ class EmployeeController extends Controller
         $input_4 = $request->input('middlename');
         $ucword_4 = ucwords($input_4);
         $suffix = $request->input('suffix');
-        $positions_id = $request->input('positions_id'); 
-        $offices_id = $request->input('offices_id'); 
+        $positions_id = $request->input('positions_id');
+        $offices_id = $request->input('offices_id');
         $input_5 = $request->input('address');
         $ucword_5 = ucwords($input_5);
         $input_6 = $request->input('contact_number');
@@ -151,28 +151,28 @@ class EmployeeController extends Controller
         $ucword_7 = ucwords($input_7);
         $input_8 = $request->input('ecp_contact_number');
         $ucword_8 = ucwords($input_8);
-        $statuses_id = $request->input('statuses_id'); 
-        
-        $data = Employee::findOrFail($id);   
+        $statuses_id = $request->input('statuses_id');
+
+        $data = Employee::findOrFail($id);
     	$data->employee_number = $employee_number;
-        $data->lastname = $ucword_2; 
+        $data->lastname = $ucword_2;
         $data->firstname = $ucword_3;
         $data->middlename = $ucword_4;
-        $data->suffix = $suffix; 
-        $data->positions_id = $positions_id; 
+        $data->suffix = $suffix;
+        $data->positions_id = $positions_id;
         $data->offices_id = $offices_id;
-        $data->address = $ucword_5; 
+        $data->address = $ucword_5;
         $data->contact_number = $ucword_6;
-        $data->emergency_contact_person = $ucword_7;         
+        $data->emergency_contact_person = $ucword_7;
         $data->ecp_contact_number = $ucword_8;
-        $data->statuses_id = $statuses_id;  
-        
-        $this->validate($request, [ 
+        $data->statuses_id = $statuses_id;
+
+        $this->validate($request, [
             'image' => '
                 required|image|mimes:jpg,jpeg,png|max:20000']);
-        if ($request->hasfile('image')) { 
+        if ($request->hasfile('image')) {
             $image = $request->file('image');
-            $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();          
+            $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
             $resize_image = Image::make($image->getRealPath());
             $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
             $data->image = $image_name;
@@ -182,7 +182,7 @@ class EmployeeController extends Controller
             }
 
         $data->save();
-      
+
         flash($employee_number.' has been successfully updated to database!')->success();
         // return back()->withInput();
         return redirect('/home');
@@ -193,7 +193,7 @@ class EmployeeController extends Controller
     */
 
     Public function view($id){
-        $employees = Employee::findOrFail($id);        
+        $employees = Employee::findOrFail($id);
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();

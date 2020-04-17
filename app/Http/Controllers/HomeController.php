@@ -32,7 +32,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request)
-    {   
+    {
         $offices = Office::all();
         if ($request->ajax()) {
 
@@ -40,40 +40,40 @@ class HomeController extends Controller
             {
                 $data = Employee::with('positions', 'offices')
                     ->where('offices_id','=', $request->filter_office)
-                    ->get(); 
+                    ->get();
             }
             else
             {
-                $data = Employee::with('positions', 'offices')->get();                     
+                $data = Employee::with('positions', 'offices')->get();
 
             }
 
             return Datatables::of($data)
             ->addColumn('action', function($data){
-                
+
                 if(auth()->user()->roles_id == 3)
-                    $button = '<a href="/edit/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary"">Edit</a>&nbsp;<a href="/view/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary"">View</a>';                   
+                    $button = '<a href="/edit/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary"">Edit</a>&nbsp;<a href="/view/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary"">View</a>';
                 else
                     $button = '<a href="/view/'.$data->id.'" class="btn btn-sm btn-outline-primary"">View</a>';
-                return $button;                       
+                return $button;
             })
             ->rawColumns(['action'])
             ->make(true);
         }
         return view('home',compact('offices'));
     }
-         
+
     /*
     | View - Employee by Employee ID
     */
 
     Public function view($id){
-        $employees = Employee::findOrFail($id);        
+        $employees = Employee::findOrFail($id);
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();
         return view('guest.view', compact('employees', 'offices','positions', 'statuses'));
     }
 
-    
+
 }

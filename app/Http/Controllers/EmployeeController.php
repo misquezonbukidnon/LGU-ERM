@@ -169,20 +169,17 @@ class EmployeeController extends Controller
 
         $this->validate($request, [
             'image' => '
-                required|image|mimes:jpg,jpeg,png|max:20000']);
+                image|mimes:jpg,jpeg,png|max:20000']);
         if ($request->hasfile('image')) {
             $image = $request->file('image');
             $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
             $resize_image = Image::make($image->getRealPath());
             $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
             $data->image = $image_name;
+            $data->save();
         } else {
-                return $request;
-                $data->image = '';
+            $data->save();
             }
-
-        $data->save();
-
         flash($employee_number.' has been successfully updated to database!')->success();
         // return back()->withInput();
         return redirect('/home');

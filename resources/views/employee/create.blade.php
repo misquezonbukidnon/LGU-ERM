@@ -13,13 +13,13 @@
 				</ol>
             </nav>
             @if(count($errors) > 0)
-            <div class="alert alert-danger">              
+            <div class="alert alert-danger">
                 <ul>
                     @foreach($errors->all() as $error)
                         <li> {{ $error }} </li>
                     @endforeach
                 </ul>
-            </div>                       
+            </div>
             @endif
 			<div class="col-md-12">
 				<div class="row">
@@ -34,39 +34,39 @@
                                         <label for="inputEmployeenumber">Employee ID Number</label>
                                         <input type="text" class="form-control" id="inputEmployeenumber" name="employee_number" aria-describedby="employeenumberHelp" required>
                                         <small id="employeenumberHelp" class="form-text text-muted">Please enter employee ID number.</small>
-                                    </div>	
+                                    </div>
 
                                     {{--Employee Lastname--}}
                                     <div class="form-group">
                                         <label for="inputLastname">Lastname</label>
                                         <input type="text" class="form-control" id="inputLastname" name="lastname" aria-describedby="lastnameHelp" required>
                                         <small id="lastnameHelp" class="form-text text-muted">Please enter employee lastname.</small>
-                                    </div>	
+                                    </div>
 
                                     {{--Employee Firstname--}}
                                     <div class="form-group">
                                         <label for="inputFirstname">Firstname</label>
                                         <input type="text" class="form-control" id="inputFirstname" name="firstname" aria-describedby="firstnameHelp" required>
                                         <small id="firstnameHelp" class="form-text text-muted">Please enter employee firstname.</small>
-                                    </div>	
+                                    </div>
 
                                     {{--Employee Middlename--}}
                                     <div class="form-group">
                                         <label for="inputMiddlename">Middlename (Optional)</label>
                                         <input type="text" class="form-control" id="inputMiddlename" name="middlename" aria-describedby="middlenameHelp">
                                         <small id="middlenameHelp" class="form-text text-muted">Please enter employee middlename.</small>
-                                    </div>	
-									
+                                    </div>
+
                                     {{--Suffix--}}
                                     <div class="form-group">
                                         <label for="selectSuffix">Suffix</label>
                                         <select class="custom-select" name="suffix">
-                                        <option value="">Click to select</option>	
+                                        <option value="">Click to select</option>
                                         <option value="Jr">Jr</option>
                                         <option value="Sr">Sr</option>
                                         <option value="I">I</option>
-                                        <option value="II">II</option>                                    
-                                        <option value="III">III</option> 
+                                        <option value="II">II</option>
+                                        <option value="III">III</option>
                                         </select>
                                         <small id="positionHelp" class="form-text text-muted">Please select suffix (if applicable).</small>
                                     </div>
@@ -75,28 +75,28 @@
                                     <div class="form-group">
                                         <label for="selectPosition">Position</label>
                                         <select class="custom-select" name="positions_id" required>
-                                        <option value="">Click to select</option>		
-                                        @foreach ($positions as $position)					
+                                        <option value="">Click to select</option>
+                                        @foreach ($positions as $position)
                                             <option value="{{$position->id}}"> {{ $position->name}}
                                             </option>
                                         @endforeach
                                         </select>
                                         <small id="positionHelp" class="form-text text-muted">Please select position.</small>
                                     </div>
-							
+
                                     {{--Employee Office Designate--}}
                                     <div class="form-group">
                                         <label for="selectOffice">Office</label>
                                         <select class="custom-select" name="offices_id" required>
-                                        <option value="">Click to select</option>		
-                                        @foreach ($offices as $office)					
+                                        <option value="">Click to select</option>
+                                        @foreach ($offices as $office)
                                             <option value="{{$office->id}}"> {{ $office->name}}
                                             </option>
                                         @endforeach
                                         </select>
                                         <small id="officeHelp" class="form-text text-muted">Please select office.</small>
                                     </div>
-								
+
 								</div>
 							</div>
 						</div>
@@ -112,34 +112,34 @@
                                         <label for="inputAddress">Address</label>
                                         <input type="text" class="form-control" id="inputAddress" name="address" aria-describedby="addressHelp" required>
                                         <small id="addressHelp" class="form-text text-muted">Please enter employee address.</small>
-                                    </div>	
+                                    </div>
 
                                     {{--Employee Contact Number--}}
                                     <div class="form-group">
                                         <label for="inputContactnumber">Contact Number</label>
                                         <input type="text" class="form-control" id="inputContactnumber" name="contact_number" aria-describedby="contactnumberHelp">
                                         <small id="contactnumberHelp" class="form-text text-muted">Please enter employee contact number.</small>
-                                    </div>	
+                                    </div>
 
                                     {{--Employee Emergency Contact Person--}}
                                     <div class="form-group">
                                         <label for="inputEcp">Emergency Contact Person</label>
                                         <input type="text" class="form-control" id="inputEcp" name="emergency_contact_person" aria-describedby="ecpHelp">
                                         <small id="ecpHelp" class="form-text text-muted">Please enter employee emergency contact person.</small>
-                                    </div>	
+                                    </div>
 
                                     {{--Employee Emergency Contact Person Contact Number--}}
                                     <div class="form-group">
                                         <label for="inputEcpcn">Emergency Contact Number</label>
                                         <input type="text" class="form-control" id="inputEcpcn" name="ecp_contact_number" aria-describedby="ecpcnHelp">
                                         <small id="ecpcnHelp" class="form-text text-muted">Please enter employee emergency contact number.</small>
-                                    </div>	
-							
+                                    </div>
+
                                     {{--Employee Status--}}
                                     <div class="form-group">
                                         <label for="selectStatus">Status</label>
-                                        <select class="custom-select" name="statuses_id"  required>                                        	
-                                        @foreach ($statuses as $status)					
+                                        <select class="custom-select" name="statuses_id"  required>
+                                        @foreach ($statuses as $status)
                                             <option value="{{$status->id}}"> {{ $status->name}} </option>
                                         @endforeach
                                         </select>
@@ -148,19 +148,19 @@
 
                                     <div class="form-group">
                                         <label for="image">Image</label>
-                                        <input type="file" name="image" class="form-control" required>                                                                            
+                                        <input type="file" name="image" class="form-control" required>
 									</div>
-									
-									<div align="center">	
-										<button type="submit" class="btn btn-outline-primary">Submit</button>										
-									</div>																																												              
-                                    
+
+									<div align="center">
+										<button type="submit" class="btn btn-outline-primary">Submit</button>
+									</div>
+
 					            </div>
 					        </div>
 				        </div>
         			</div>
 				</div>
-			</div> 
+			</div>
 		</form>
 	</div>
 @endsection

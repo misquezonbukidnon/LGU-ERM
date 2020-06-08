@@ -94,17 +94,6 @@ class EmployeeController extends Controller
                     $data->image = '';
                 }
 
-            // if ($request->hasfile('image')) {
-            //     $file = $request->file('image');
-            //     $extension = $file->getClientOriginalExtension();
-            //     $filename = $data->lastname.'-'.$data->firstname. '.' . $extension;
-            //     $file->move('uploads/employee/', $filename);
-            //     $data->image = $filename;
-            // } else {
-            //     return $request;
-            //     $data->image = '';
-            // }
-
             $data->save();
 
             flash($employee_number.' has been successfully recorded to database!')->success();

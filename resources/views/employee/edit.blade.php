@@ -132,6 +132,7 @@
                                         <label for="selectSuffix">Suffix</label>
                                         <select class="custom-select" name="suffix">
                                         <option value="{{ $employees->suffix }}">{{ $employees->suffix }} (Current)</option>
+                                        <option value="">Not Applicable</option>
 										<option value="Jr">Jr</option>
                                         <option value="Sr">Sr</option>
                                         <option value="I">I</option>

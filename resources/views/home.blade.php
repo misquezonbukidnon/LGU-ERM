@@ -9,33 +9,33 @@
                     <div class="item-wrapper">
                         <div class="row">
                             <div class="col-sm-9">
-                                <div class="form-group">                                   
+                                <div class="form-group">
                                     <select class="form-control" name="filter_office" id="filter_office" required>
-                                    <option>Select Office</option>		
-                                    @foreach ($offices as $office)					
+                                    <option>Select Office</option>
+                                    @foreach ($offices as $office)
                                         <option value="{{$office->id}}"> {{ $office->name}}
                                         </option>
                                     @endforeach
-                                    </select>                
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <button type="button" name="filter" id="filter" class="btn btn-primary">Filter</button> <button type="button" name="reset" id="reset" class="btn btn-primary">Reset</button>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </div>
 <div class="container">
     @csrf
-    <div class="row justify-content-center">        
+    <div class="row justify-content-center">
         <div class="col-md-12">
-           
+
             <div class="grid">
                 <div class="grid-header">List of Employees</div>
                     <div class="grid-body">
@@ -55,7 +55,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                  
+
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </div>
 </div>
@@ -89,7 +89,6 @@
                 serverSide: true,
                 ajax: 'home',
                 columns: [
-                    // { data: 'id', name: 'id' },
                     { data: 'employee_number', name: 'employee_number' },
                     { data: 'lastname', name: 'lastname' },
                     { data: 'firstname', name: 'firstname' },
@@ -110,13 +109,12 @@
                 var dataTable = $('#employees-data-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    retrieve: true,                        
+                    retrieve: true,
                     ajax:{
                         url: "{{ route('customsearch.index') }}",
                         data:{filter_office:filter_office}
                     },
                     columns: [
-                    // { data: 'id', name: 'id' },
                         { data: 'employee_number', name: 'employee_number' },
                         { data: 'lastname', name: 'lastname' },
                         { data: 'firstname', name: 'firstname' },
@@ -125,7 +123,7 @@
                         { data: 'positions.name', name: 'positions.name' },
                         { data: 'action', name: 'action'}
                 ]
-                });            
+                });
             }
             $('#filter').click(function(){
                 var filter_office =$('#filter_office').val();

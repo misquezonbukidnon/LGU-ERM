@@ -10,6 +10,9 @@ use App\Status;
 use DataTables;
 use Image;
 use input;
+use App\Exports\EmployeeExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Carbon\Carbon;
 
 class EmployeeController extends Controller
 {
@@ -184,6 +187,12 @@ class EmployeeController extends Controller
         $positions = Position::all();
         $statuses = Status::all();
         return view('employee.view', compact('employees', 'offices','positions', 'statuses'));
+    }
+
+    public function export()
+    {
+        $date = Carbon::now()->format('M d Y');
+        return Excel::download(new EmployeeExport, "Employees - $date.xlsx");
     }
 
 }

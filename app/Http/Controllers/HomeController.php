@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Employee;
 use App\Office;
 use App\Position;
@@ -12,6 +13,8 @@ use App\User;
 use App\Auth;
 use DataTables;
 use input;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class HomeController extends Controller
@@ -74,6 +77,5 @@ class HomeController extends Controller
         $statuses = Status::all();
         return view('guest.view', compact('employees', 'offices','positions', 'statuses'));
     }
-
 
 }

@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/excel', 'EmployeeController@export');
 Route::get('/guest', 'HomeController@guest');
 Route::get('/view/{id}', 'HomeController@view');
 Route::resource('customsearch', 'HomeController');
@@ -46,3 +47,5 @@ Route::get('/create/position', 'PositionController@create');
 Route::post('/store/position', 'PositionController@store');
 Route::get('/edit/position/{id}', 'PositionController@edit');
 Route::post('/update/position/{id}', 'PositionController@update');
+
+

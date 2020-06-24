@@ -31,11 +31,15 @@
         </div>
     </div>
 </div>
+<div class="col-md-12" align="right">
+    <div class="container">
+        <a href="/home/excel" class ="btn btn-outline-success btn-rounded"> Export Employees to Excel</a><br><br>
+    </div>
+</div>
 <div class="container">
     @csrf
     <div class="row justify-content-center">
         <div class="col-md-12">
-
             <div class="grid">
                 <div class="grid-header">List of Employees</div>
                     <div class="grid-body">

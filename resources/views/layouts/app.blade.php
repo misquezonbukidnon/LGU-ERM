@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('css/shared/style.css') }}">
     <!-- endinject -->
     <!-- Layout style -->
-    <link rel="stylesheet" href="{{ asset('css/demo_2/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/demo_1/style.css') }}">
     <!-- Layout style -->
     <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" />
     <!-- Select 2 -->

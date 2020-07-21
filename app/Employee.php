@@ -37,4 +37,8 @@ class Employee extends Model
     public function positions(){
         return $this->belongsTo('App\Position', 'positions_id');
     }
+
+    public function employmentStatuses(){
+        return $this>belongsTo('App\EmploymentStatus', 'employment_statuses_id');
+    }
 }

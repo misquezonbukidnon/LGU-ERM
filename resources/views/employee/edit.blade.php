@@ -39,68 +39,83 @@
 												<img src="{{ asset('uploads/employee/' . $employees->image) }}" width="200px;" height="200px;" alt="">
 											</div>
 										</div>
-										<div class="col-sm-4">
+										<div class="col-sm-5">
 											<div class="form-group">
-												<label for="oldIdnumber"><strong>Employee ID Number: </strong></label>
-												{{ $employees->employee_number}}
+												<label for="oldIdnumber"><strong>ID Number </strong></label>
+												<br><p>{{ $employees->employee_number}}</p>
 											</div>
 											<div class="form-group">
-												<label for="oldLastname"><strong>Lastname: </strong></label>
-												{{ $employees->lastname }}
+												<label for="oldLastname"><strong>Lastname </strong></label>
+												<br><p>{{ $employees->lastname }}</p>
 											</div>
 											<div class="form-group">
-												<label for="oldFirstname"><strong>Firstname: </strong></label>
-												{{ $employees->firstname }}
+												<label for="oldFirstname"><strong>Firstname </strong></label>
+												<br><p>{{ $employees->firstname }}</p>
 											</div>
 											<div class="form-group">
-												<label for="oldMiddlename"><strong>Middlename/Initial: </strong></label>
-												{{ $employees->middlename }}
+												<label for="oldMiddlename"><strong>Middlename </strong></label>
+												<br><p>{{ $employees->middlename }}</p>
 											</div>
 											<div class="form-group">
-												<label for="oldPosition"><strong>Position: </strong></label>
-												{{ $employees->positions->name }}
-											</div>
-											<div class="form-group">
-												<label for="oldOffice"><strong>Office: </strong></label>
-												{{ $employees->offices->name }}
-											</div>
-											<div class="form-group">
-												<label for="oldAddress"><strong>Address: </strong></label>
-												{{ $employees->address }}
-											</div>
-										</div>
-										<div class="col-sm-4">
-                                            <div class="form-group">
-												<label for="oldContactnumber"><strong>Contact Number: </strong></label>
-												{{ $employees->contact_number }}
-											</div>
-											<div class="form-group">
-												<label for="oldEmergency"><strong>Emergency Contact Person: </strong></label>
-												{{ $employees->emergency_contact_person }}
-											</div>
-											<div class="form-group">
-												<label for="oldEcpcontact"><strong>Contact Number: </strong></label>
-												{{ $employees->ecp_contact_number }}
-											</div>
-											<div class="form-group">
-												<label for="oldservicestart"><strong>Date Started: </strong></label>
-												{{ $employees->employment_start_date }}
+												<label for="oldsuffix"><strong>Suffix </strong></label>
+												<br>
+                                                @if($employees->suffix != null)
+                                                    <p>{{ $employees->suffix }}</p>
+                                                @else
+                                                    <p>No Suffix</p>
+                                                @endif
                                             </div>
 											<div class="form-group">
-												<label for="oldStatus"><strong>Classification: </strong></label>
-												{{ $employees->statuses->name }}
+												<label for="oldPosition"><strong>Position </strong></label>
+												<br><p>{{ $employees->positions->name }}</p>
 											</div>
 											<div class="form-group">
-												<label for="oldClassification"><strong>Status: </strong></label>
-												{{ $employees->employmentstatuses->name }}
+												<label for="oldOffice"><strong>Office </strong></label>
+												<br><p>{{ $employees->offices->name }}</p>
+											</div>
+											<div class="form-group">
+												<label for="oldAddress"><strong>Address </strong></label>
+												<br><p>{{ $employees->address }}</p>
+											</div>
+										</div>
+										<div class="col-sm-3">
+                                            <div class="form-group">
+												<label for="oldContactnumber"><strong>Contact Number </strong></label>
+												<br><p>{{ $employees->contact_number }}</p>
+											</div>
+											<div class="form-group">
+												<label for="oldEmergency"><strong>Emergency Contact Person </strong></label>
+												<br><p>{{ $employees->emergency_contact_person }}</p>
+											</div>
+											<div class="form-group">
+												<label for="oldEcpcontact"><strong>Contact Number </strong></label>
+												<br><p>{{ $employees->ecp_contact_number }}</p>
+											</div>
+											<div class="form-group">
+												<label for="oldStatus"><strong>Classification </strong></label>
+												<br><p>{{ $employees->statuses->name }}</p>
+											</div>
+											<div class="form-group">
+												<label for="oldClassification"><strong>Status </strong></label>
+												<br><p>{{ $employees->employmentstatuses->name }}</p>
 											</div>
                                             <div class="form-group">
-												<label for="oldservicestart"><strong>Employment Date: </strong></label>
-												{{ $employees->employment_start_date }}
+												<label for="oldservicestart"><strong>Employment Date </strong></label>
+												<br>
+                                                @if($employees->employment_start_date != null)
+                                                    <p>{{ $employees->employment_start_date }}</p>
+                                                @else
+                                                    <p>No Data</p>
+                                                @endif
 											</div>
                                             <div class="form-group">
-												<label for="oldserviceended"><strong>Service Ended: </strong></label>
-												{{ $employees->employment_start_date }}
+												<label for="oldserviceended"><strong>Service Ended </strong></label>
+												<br>
+                                                @if($employees->employment_end_date != null)
+                                                    <p>{{ $employees->employment_end_date }}</p>
+                                                @else
+                                                    <p>No Data</p>
+                                                @endif
 											</div>
 										</div>
 									</div>
@@ -118,7 +133,7 @@
 
                                     {{--Employee ID Number--}}
                                     <div class="form-group">
-                                        <label for="inputEmployeenumber">Employee ID Number</label>
+                                        <label for="inputEmployeenumber">ID Number</label>
                                         <input type="text" class="form-control" id="inputEmployeenumber" name="employee_number" aria-describedby="employeenumberHelp" value="{{ $employees->employee_number }}" required>
                                         <small id="employeenumberHelp" class="form-text text-muted">Please enter employee ID number.</small>
                                     </div>
@@ -139,7 +154,7 @@
 
                                     {{--Employee Middlename--}}
                                     <div class="form-group">
-                                        <label for="inputMiddlename">Middlename (Optional)</label>
+                                        <label for="inputMiddlename">Middlename</label>
                                         <input type="text" class="form-control" id="inputMiddlename" name="middlename" aria-describedby="middlenameHelp" value="{{ $employees->middlename }}">
                                         <small id="middlenameHelp" class="form-text text-muted">Please enter employee middlename.</small>
                                     </div>

@@ -9,9 +9,6 @@
 				  <li class="breadcrumb-item">
 					<a href="/home">Home</a>
 				  </li>
-				  <li class="breadcrumb-item">
-					<a href="/create/employee">New Entry</a>
-				  </li>
 				  <li class="breadcrumb-item active" aria-current="page">Edit</li>
 				</ol>
 			</nav>

@@ -9,9 +9,6 @@
 				  <li class="breadcrumb-item">
 					<a href="/home">Home</a>
 				  </li>
-				  <li class="breadcrumb-item">
-					<a href="/create/employee">New Entry</a>
-				  </li>
 				  <li class="breadcrumb-item active" aria-current="page">Employee Info</li>
 				</ol>
 			</nav>
@@ -19,7 +16,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="grid">
-							<div class="grid-header">Employee Information</div>
+							<div class="grid-header">Employee Details</div>
 							<div class="grid-body">
 								<div class="item-wrapper">
 									<div class="row">

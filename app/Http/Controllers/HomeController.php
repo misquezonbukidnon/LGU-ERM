@@ -41,13 +41,13 @@ class HomeController extends Controller
 
             if(!empty($request->filter_office))
             {
-                $data = Employee::with('positions', 'offices')
+                $data = Employee::with('positions', 'offices', 'statuses')
                     ->where('offices_id','=', $request->filter_office)
                     ->get();
             }
             else
             {
-                $data = Employee::with('positions', 'offices')->get();
+                $data = Employee::with('positions', 'offices', 'statuses')->get();
 
             }
 

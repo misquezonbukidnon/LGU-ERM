@@ -31,11 +31,11 @@
         </div>
     </div>
 </div>
-<div class="col-md-12" align="right">
+<!-- <div class="col-md-12" align="right">
     <div class="container">
         <a href="/home/excel" class ="btn btn-outline-success btn-rounded"> Export Employees to Excel</a><br><br>
     </div>
-</div>
+</div> -->
 <div class="container">
     @csrf
     <div class="row justify-content-center">
@@ -49,11 +49,12 @@
                                     <thead>
                                         <tr>
                                             {{-- <th>ID</th> --}}
-                                            <th>ID Number</th>
+                                            <!-- <th>ID Number</th> -->
                                             <th>Lastname</th>
                                             <th>Firstname</th>
                                             <th>Middlename</th>
-                                            <th>Suffix</th>
+                                            <th>Status</th>
+                                           <!--  <th>Suffix</th> -->
                                             <th>Position</th>
                                             <th align="center">Action</th>
                                         </tr>
@@ -64,11 +65,12 @@
                                     <tfoot>
                                         <tr>
                                         {{-- <th>ID</th> --}}
-                                            <th>ID Number</th>
+                                           <!--  <th>ID Number</th> -->
                                             <th>Lastname</th>
                                             <th>Firstname</th>
                                             <th>Middlename</th>
-                                            <th>Suffix</th>
+                                            <th>Status</th>
+                                            <!-- <th>Suffix</th> -->
                                             <th>Position</th>
                                             <th align="center">Action</th>
                                         </tr>
@@ -93,14 +95,17 @@
                 serverSide: true,
                 ajax: 'home',
                 columns: [
-                    { data: 'employee_number', name: 'employee_number' },
-                    { data: 'lastname', name: 'lastname' },
+                    // { data: 'employee_number', name: 'employee_number' },
+                    { data: 'lastname', name: 'lastname'},
                     { data: 'firstname', name: 'firstname' },
                     { data: 'middlename', name: 'middlename' },
-                    { data: 'suffix', name: 'suffix' },
+                    { data: 'statuses.name', name: 'statuses.name' },
+                    // { data: 'suffix', name: 'suffix' },
                     { data: 'positions.name', name: 'positions.name' },
                     { data: 'action', name: 'action'}
-                ]
+                ],
+                order: [[ 0, "asc" ]]
+                
             });
         });
     </script>
@@ -119,14 +124,16 @@
                         data:{filter_office:filter_office}
                     },
                     columns: [
-                        { data: 'employee_number', name: 'employee_number' },
+                        // { data: 'employee_number', name: 'employee_number' },
                         { data: 'lastname', name: 'lastname' },
                         { data: 'firstname', name: 'firstname' },
                         { data: 'middlename', name: 'middlename' },
-                        { data: 'suffix', name: 'suffix' },
+                        { data: 'statuses.name', name: 'statuses.name' },
+                        // { data: 'suffix', name: 'suffix' },
                         { data: 'positions.name', name: 'positions.name' },
                         { data: 'action', name: 'action'}
-                ]
+                ],
+                order: [[ 0, "asc" ]]
                 });
             }
             $('#filter').click(function(){

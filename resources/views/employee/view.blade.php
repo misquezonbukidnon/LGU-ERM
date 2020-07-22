@@ -33,59 +33,65 @@
 										</div>
 										<div class="col-sm-4">
 											<div class="form-group">
-												<label for="oldIdnumber"><strong><u>ID Number:</u> </strong></label>
-												<br><i>{{ $employees->employee_number}}</i>
+												<label for="oldIdnumber"><strong>Employee ID Number: </strong></label>
+												{{ $employees->employee_number}}
 											</div>
 											<div class="form-group">
-												<label for="oldLastname"><strong><u>Lastname:</u> </strong></label>
-												<br><i>{{ $employees->lastname }}</i>
+												<label for="oldLastname"><strong>Lastname: </strong></label>
+												{{ $employees->lastname }}
 											</div>
 											<div class="form-group">
-												<label for="oldFirstname"><strong><u>Firstname:</u> </strong></label>
-												<br><i>{{ $employees->firstname }}</i>
+												<label for="oldFirstname"><strong>Firstname: </strong></label>
+												{{ $employees->firstname }}
 											</div>
 											<div class="form-group">
-												<label for="oldMiddlename"><strong><u>Middlename:</u> </strong></label>
-												<br><i>{{ $employees->middlename }}</i>
+												<label for="oldMiddlename"><strong>Middlename/Initial: </strong></label>
+												{{ $employees->middlename }}
 											</div>
 											<div class="form-group">
-												<label for="oldSuffix"><strong><u>Suffix:</u> </strong></label>
-												<br><i>{{ $employees->suffix }}</i>
+												<label for="oldPosition"><strong>Position: </strong></label>
+												{{ $employees->positions->name }}
 											</div>
 											<div class="form-group">
-												<label for="oldPosition"><strong><u>Position:</u> </strong></label>
-												<br><i>{{ $employees->positions->name }}</i>
-                                            </div>
-                                            <div class="form-group">
-												<label for="oldOffice"><strong><u>Office:</u> </strong></label>
-												<br><i>{{ $employees->offices->name }}</i>
+												<label for="oldOffice"><strong>Office: </strong></label>
+												{{ $employees->offices->name }}
 											</div>
-                                        </div>
-
+											<div class="form-group">
+												<label for="oldAddress"><strong>Address: </strong></label>
+												{{ $employees->address }}
+											</div>
+										</div>
 										<div class="col-sm-4">
-
-											<div class="form-group">
-												<label for="oldAddress"><strong><u>Address:</u> </strong></label>
-												<br><i>{{ $employees->address }}</i>
-											</div>
                                             <div class="form-group">
-												<label for="oldContactnumber"><strong><u>Contact Number:</u> </strong></label>
-												<br><i>{{ $employees->contact_number }}</i>
+												<label for="oldContactnumber"><strong>Contact Number: </strong></label>
+												{{ $employees->contact_number }}
 											</div>
 											<div class="form-group">
-												<label for="oldEmergency"><strong><u>Emergency Contact Person:</u> </strong></label>
-												<br><i>{{ $employees->emergency_contact_person }}</i>
+												<label for="oldEmergency"><strong>Emergency Contact Person: </strong></label>
+												{{ $employees->emergency_contact_person }}
 											</div>
 											<div class="form-group">
-												<label for="oldEcpcontact"><strong><u>Contact Number:</u> </strong></label>
-												<br><i>{{ $employees->ecp_contact_number }}</i>
+												<label for="oldEcpcontact"><strong>Contact Number: </strong></label>
+												{{ $employees->ecp_contact_number }}
+											</div>
+											<div class="form-group">
+												<label for="oldservicestart"><strong>Date Started: </strong></label>
+												{{ $employees->employment_start_date }}
                                             </div>
 											<div class="form-group">
-												<label for="oldservicestart"><strong>Employment Started: </strong></label>
+												<label for="oldStatus"><strong>Classification: </strong></label>
+												{{ $employees->statuses->name }}
+											</div>
+											<div class="form-group">
+												<label for="oldClassification"><strong>Status: </strong></label>
+												{{ $employees->employmentstatuses->name }}
+											</div>
+                                            <div class="form-group">
+												<label for="oldservicestart"><strong>Employment Date: </strong></label>
 												{{ $employees->employment_start_date }}
 											</div>
-											<div class="form-group">
-												<label for="oldservicestart"><strong>Employment Ended: </strong></label>
+                                            <div class="form-group">
+												<label for="oldserviceended"><strong>Service Ended: </strong></label>
 												{{ $employees->employment_end_date }}
 											</div>
 										</div>

@@ -52,7 +52,7 @@
 
                                     {{--Employee Middlename--}}
                                     <div class="form-group">
-                                        <label for="inputMiddlename">Middlename (Optional)</label>
+                                        <label for="inputMiddlename">Middlename/M.I (Optional)</label>
                                         <input type="text" class="form-control" id="inputMiddlename" name="middlename" aria-describedby="middlenameHelp">
                                         <small id="middlenameHelp" class="form-text text-muted">Please enter employee middlename.</small>
                                     </div>
@@ -135,22 +135,35 @@
                                         <small id="officeHelp" class="form-text text-muted">Please select office.</small>
                                     </div>
 
-                                    {{--Employee Status--}}
+                                    {{--Employee Classification--}}
                                     <div class="form-group">
-                                        <label for="selectStatus">Status</label>
+                                        <label for="selectClass">Classification</label>
                                         <select class="custom-select" name="statuses_id"  required>
                                         @foreach ($statuses as $status)
                                             <option value="{{$status->id}}"> {{ $status->name}} </option>
                                         @endforeach
                                         </select>
-                                        <small id="statusHelp" class="form-text text-muted">Please select Status.</small>
+                                        <small id="classHelp" class="form-text text-muted">Please select classification.</small>
                                     </div>
+
+                                    {{--Employment Status--}}
+                                    <div class="form-group">
+                                        <label for="selectStatus">Status</label>
+                                        <select class="custom-select" name="employment_statuses_id"  required>
+                                        @foreach ($employmentstatuses as $status)
+                                            <option value="{{$status->id}}"> {{ $status->name}}
+                                            </option>
+                                        @endforeach
+                                        </select>
+                                        <small id="statusHelp" class="form-text text-muted">Please select status.</small>
+                                    </div>
+
 
                                     {{--Employment Start Date--}}
                                     <div class="form-group">
-                                        <label for="inputEmpstartdate">Employment Date Started</label>
+                                        <label for="inputEmpstartdate">Employment Date</label>
                                         <input type="date" class="form-control" id="inputEmpstartdate" name="employment_start_date" aria-describedby="empstartdateHelp" required>
-                                        <small id="empstartdateHelp" class="form-text text-muted">Please enter employee date of service started.</small>
+                                        <small id="empstartdateHelp" class="form-text text-muted">Please enter date of service started.</small>
                                     </div>
 
                                     <div class="form-group">

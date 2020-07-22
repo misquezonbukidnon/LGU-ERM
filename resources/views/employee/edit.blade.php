@@ -56,7 +56,7 @@
 												{{ $employees->firstname }}
 											</div>
 											<div class="form-group">
-												<label for="oldMiddlename"><strong>Middlename: </strong></label>
+												<label for="oldMiddlename"><strong>Middlename/Initial: </strong></label>
 												{{ $employees->middlename }}
 											</div>
 											<div class="form-group">
@@ -67,12 +67,12 @@
 												<label for="oldOffice"><strong>Office: </strong></label>
 												{{ $employees->offices->name }}
 											</div>
-										</div>
-										<div class="col-sm-4">
 											<div class="form-group">
 												<label for="oldAddress"><strong>Address: </strong></label>
 												{{ $employees->address }}
 											</div>
+										</div>
+										<div class="col-sm-4">
                                             <div class="form-group">
 												<label for="oldContactnumber"><strong>Contact Number: </strong></label>
 												{{ $employees->contact_number }}
@@ -86,12 +86,24 @@
 												{{ $employees->ecp_contact_number }}
 											</div>
 											<div class="form-group">
-												<label for="oldservicestart"><strong>Employment Started: </strong></label>
+												<label for="oldservicestart"><strong>Date Started: </strong></label>
 												{{ $employees->employment_start_date }}
                                             </div>
+											<div class="form-group">
+												<label for="oldStatus"><strong>Classification: </strong></label>
+												{{ $employees->statuses->name }}
+											</div>
+											<div class="form-group">
+												<label for="oldClassification"><strong>Status: </strong></label>
+												{{ $employees->employmentstatuses->name }}
+											</div>
                                             <div class="form-group">
-												<label for="oldservicestart"><strong>Employment Ended: </strong></label>
-												{{ $employees->employment_end_date }}
+												<label for="oldservicestart"><strong>Employment Date: </strong></label>
+												{{ $employees->employment_start_date }}
+											</div>
+                                            <div class="form-group">
+												<label for="oldserviceended"><strong>Service Ended: </strong></label>
+												{{ $employees->employment_start_date }}
 											</div>
 										</div>
 									</div>
@@ -214,9 +226,9 @@
                                         <small id="officeHelp" class="form-text text-muted">Please select office.</small>
                                     </div>
 
-                                    {{--Employee Status--}}
+                                    {{--Employment Classification--}}
                                     <div class="form-group">
-                                        <label for="selectStatus">Status</label>
+                                        <label for="selectStatus">Classification</label>
                                         <select class="custom-select" name="statuses_id"  required>
                                         <option value="{{ $employees->statuses->id }}">{{ $employees->statuses->name }} (Current)</option>
                                         @foreach ($statuses as $status)
@@ -224,21 +236,34 @@
                                             </option>
                                         @endforeach
                                         </select>
-                                        <small id="statusHelp" class="form-text text-muted">Please select Status.</small>
+                                        <small id="statusHelp" class="form-text text-muted">Please select classification.</small>
+                                    </div>
+
+                                    {{--Employment Status--}}
+                                    <div class="form-group">
+                                        <label for="selectStatus">Status</label>
+                                        <select class="custom-select" name="statuses_id"  required>
+                                        <option value="{{ $employees->employmentstatuses->id }}">{{ $employees->employmentstatuses->name }} (Current)</option>
+                                        @foreach ($employmentstatuses as $status)
+                                            <option value="{{$status->id}}"> {{ $status->name}}
+                                            </option>
+                                        @endforeach
+                                        </select>
+                                        <small id="statusHelp" class="form-text text-muted">Please select status.</small>
                                     </div>
 
                                     {{--Employment Start Date--}}
                                     <div class="form-group">
-                                        <label for="inputEmpstartdate">Employment Date Started</label>
+                                        <label for="inputEmpstartdate">Employment Date</label>
                                         <input type="date" class="form-control" id="inputEmpstartdate" name="employment_start_date" aria-describedby="empstartdateHelp" required>
-                                        <small id="empstartdateHelp" class="form-text text-muted">Please enter employee date of service started.</small>
+                                        <small id="empstartdateHelp" class="form-text text-muted">Please enter date of service started.</small>
                                     </div>
 
                                     {{--Employment End Date--}}
                                     <div class="form-group">
-                                        <label for="inputEmpenddate">Employment Date Ended</label>
-                                        <input type="date" class="form-control" id="inputEmpenddate" name="employment_end_date" aria-describedby="empenddateHelp" value="{{ $employees->employment_end_date }}>
-                                        <small id="empenddateHelp" class="form-text text-muted">Please enter employee date of service ended.</small>
+                                        <label for="inputEmpenddate">Service Ended</label>
+                                        <input type="date" class="form-control" id="inputEmpenddate" name="employment_end_date" aria-describedby="empenddateHelp">
+                                        <small id="empenddateHelp" class="form-text text-muted">Please enter date of service ended.</small>
                                     </div>
 
                                     <div class="form-group">

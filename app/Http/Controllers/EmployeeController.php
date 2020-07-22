@@ -7,6 +7,7 @@ use App\Employee;
 use App\Position;
 use App\Office;
 use App\Status;
+use App\EmploymentStatus;
 use DataTables;
 use Image;
 use input;
@@ -26,11 +27,12 @@ class EmployeeController extends Controller
     */
     Public function create(Request $request){
 
-        $employees = Employee::with('offices', 'positions', 'statuses')->get();
+        $employees = Employee::with('offices', 'positions', 'statuses', 'employmentstatuses')->get();
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();
-        return view('employee.create',compact('employees', 'offices','positions', 'statuses'));
+        $employmentstatuses = EmploymentStatus::all();
+        return view('employee.create',compact('employees', 'offices','positions', 'statuses', 'employmentstatuses'));
     }
 
     Public function store(Request $request){
@@ -55,6 +57,9 @@ class EmployeeController extends Controller
         $input_8 = $request->input('ecp_contact_number');
         $ucword_8 = ucwords($input_8);
         $statuses_id = $request->input('statuses_id');
+        $employment_statuses_id = $request->input('employment_statuses_id');
+        $employment_start_date = $request->input('employment_start_date');
+        $employment_end_date = $request->input('employment_end_date');
         $query = Employee::where('employee_number', '=', $employee_number)->first();
 
         /*
@@ -77,6 +82,10 @@ class EmployeeController extends Controller
             $data->contact_number = $ucword_6;
             $data->emergency_contact_person = $ucword_7;
             $data->ecp_contact_number = $ucword_8;
+            $data->statuses_id = $statuses_id;
+            $data->employment_statuses_id = $employment_statuses_id;
+            $data->employment_start_date = $employment_start_date;
+            $data->employment_end_date = $employment_end_date;
             $data->statuses_id = $statuses_id;
 
              /*
@@ -115,7 +124,8 @@ class EmployeeController extends Controller
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();
-        return view('employee.edit', compact('employees', 'offices','positions', 'statuses'));
+        $employmentstatuses = EmploymentStatus::all();
+        return view('employee.edit', compact('employees', 'offices','positions', 'statuses', 'employmentstatuses'));
     }
 
     /*
@@ -144,6 +154,9 @@ class EmployeeController extends Controller
         $input_8 = $request->input('ecp_contact_number');
         $ucword_8 = ucwords($input_8);
         $statuses_id = $request->input('statuses_id');
+        $employment_statuses_id = $request->input('employment_statuses_id');
+        $employment_start_date = $request->input('employment_start_date');
+        $employment_end_date = $request->input('employment_end_date');
 
         $data = Employee::findOrFail($id);
     	$data->employee_number = $employee_number;
@@ -158,6 +171,9 @@ class EmployeeController extends Controller
         $data->emergency_contact_person = $ucword_7;
         $data->ecp_contact_number = $ucword_8;
         $data->statuses_id = $statuses_id;
+        $data->employment_statuses_id = $employment_statuses_id;
+        $data->employment_start_date = $employment_start_date;
+        $data->employment_end_date = $employment_end_date;
 
         $this->validate($request, [
             'image' => '
@@ -186,7 +202,8 @@ class EmployeeController extends Controller
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();
-        return view('employee.view', compact('employees', 'offices','positions', 'statuses'));
+        $employmentstatuses = EmploymentStatus::all();
+        return view('employee.view', compact('employees', 'offices','positions', 'statuses', 'employmentstatuses'));
     }
 
     public function export()

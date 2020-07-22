@@ -23,13 +23,13 @@
 							<div class="grid-body">
 								<div class="item-wrapper">
 									<div class="row">
-										<div class="col-sm-3">                                          
-											<div class="form-group" align="center">												
-												
-											</div>                                          
-											<div class="form-group" align="center">												
+										<div class="col-sm-3">
+											<div class="form-group" align="center">
+
+											</div>
+											<div class="form-group" align="center">
 												<img src="{{ asset('uploads/employee/' . $employees->image) }}" width="200px;" height="200px;" alt="">
-											</div> 
+											</div>
 										</div>
 										<div class="col-sm-4">
 											<div class="form-group">
@@ -51,17 +51,19 @@
 											<div class="form-group">
 												<label for="oldSuffix"><strong><u>Suffix:</u> </strong></label>
 												<br><i>{{ $employees->suffix }}</i>
-											</div>											
+											</div>
 											<div class="form-group">
 												<label for="oldPosition"><strong><u>Position:</u> </strong></label>
 												<br><i>{{ $employees->positions->name }}</i>
-											</div>
-										</div>
-										<div class="col-sm-4">											
-											<div class="form-group">
+                                            </div>
+                                            <div class="form-group">
 												<label for="oldOffice"><strong><u>Office:</u> </strong></label>
 												<br><i>{{ $employees->offices->name }}</i>
 											</div>
+                                        </div>
+
+										<div class="col-sm-4">
+
 											<div class="form-group">
 												<label for="oldAddress"><strong><u>Address:</u> </strong></label>
 												<br><i>{{ $employees->address }}</i>
@@ -77,6 +79,14 @@
 											<div class="form-group">
 												<label for="oldEcpcontact"><strong><u>Contact Number:</u> </strong></label>
 												<br><i>{{ $employees->ecp_contact_number }}</i>
+                                            </div>
+											<div class="form-group">
+												<label for="oldservicestart"><strong>Employment Started: </strong></label>
+												{{ $employees->employment_start_date }}
+											</div>
+											<div class="form-group">
+												<label for="oldservicestart"><strong>Employment Ended: </strong></label>
+												{{ $employees->employment_end_date }}
 											</div>
 										</div>
 									</div>
@@ -84,8 +94,8 @@
 							</div>
 						</div>
 					</div>
-				</div>				
-			</div>	       	   
+				</div>
+			</div>
 		</form>
 	</div>
 @endsection

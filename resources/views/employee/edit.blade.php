@@ -85,6 +85,14 @@
 												<label for="oldEcpcontact"><strong>Contact Number: </strong></label>
 												{{ $employees->ecp_contact_number }}
 											</div>
+											<div class="form-group">
+												<label for="oldservicestart"><strong>Employment Started: </strong></label>
+												{{ $employees->employment_start_date }}
+                                            </div>
+                                            <div class="form-group">
+												<label for="oldservicestart"><strong>Employment Ended: </strong></label>
+												{{ $employees->employment_end_date }}
+											</div>
 										</div>
 									</div>
 								</div>
@@ -95,7 +103,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="grid">
-							<div class="grid-header">Employee Information</div>
+							<div class="grid-header">Personal Information</div>
 							<div class="grid-body">
 								<div class="item-wrapper">
 
@@ -142,6 +150,44 @@
                                         <small id="suffixHelp" class="form-text text-muted">Please select suffix (if applicable).</small>
                                     </div>
 
+                                    {{--Employee Address--}}
+                                        <div class="form-group">
+                                            <label for="inputAddress">Address</label>
+                                            <input type="text" class="form-control" id="inputAddress" name="address" aria-describedby="addressHelp" value="{{ $employees->address }}" required>
+                                            <small id="addressHelp" class="form-text text-muted">Please enter employee address.</small>
+                                        </div>
+
+                                        {{--Employee Contact Number--}}
+                                        <div class="form-group">
+                                            <label for="inputContactnumber">Contact Number</label>
+                                            <input type="text" class="form-control" id="inputContactnumber" name="contact_number" aria-describedby="contactnumberHelp" value="{{ $employees->contact_number }}">
+                                            <small id="contactnumberHelp" class="form-text text-muted">Please enter employee contact number.</small>
+                                        </div>
+
+                                        {{--Employee Emergency Contact Person--}}
+                                        <div class="form-group">
+                                            <label for="inputEcp">Emergency Contact Person</label>
+                                            <input type="text" class="form-control" id="inputEcp" name="emergency_contact_person" aria-describedby="ecpHelp" value="{{ $employees->emergency_contact_person }}">
+                                            <small id="ecpHelp" class="form-text text-muted">Please enter employee emergency contact person.</small>
+                                        </div>
+
+                                        {{--Employee Emergency Contact Person Contact Number--}}
+                                        <div class="form-group">
+                                            <label for="inputEcpcn">Emergency Contact Number</label>
+                                            <input type="text" class="form-control" id="inputEcpcn" name="ecp_contact_number" aria-describedby="ecpcnHelp" value="{{ $employees->ecp_contact_number }}">
+                                            <small id="ecpcnHelp" class="form-text text-muted">Please enter employee emergency contact number.</small>
+                                        </div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+				        <div class="grid">
+				        	<div class="grid-header">Employment Information</div>
+				          	<div class="grid-body">
+					            <div class="item-wrapper">
+
                                     {{--Employee Position--}}
                                     <div class="form-group">
                                         <label for="selectPosition">Position</label>
@@ -168,44 +214,6 @@
                                         <small id="officeHelp" class="form-text text-muted">Please select office.</small>
                                     </div>
 
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-				        <div class="grid">
-				        	<div class="grid-header">Other Information</div>
-				          	<div class="grid-body">
-					            <div class="item-wrapper">
-
-                                {{--Employee Address--}}
-                                    <div class="form-group">
-                                        <label for="inputAddress">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress" name="address" aria-describedby="addressHelp" value="{{ $employees->address }}" required>
-                                        <small id="addressHelp" class="form-text text-muted">Please enter employee address.</small>
-                                    </div>
-
-                                    {{--Employee Contact Number--}}
-                                    <div class="form-group">
-                                        <label for="inputContactnumber">Contact Number</label>
-                                        <input type="text" class="form-control" id="inputContactnumber" name="contact_number" aria-describedby="contactnumberHelp" value="{{ $employees->contact_number }}">
-                                        <small id="contactnumberHelp" class="form-text text-muted">Please enter employee contact number.</small>
-                                    </div>
-
-                                    {{--Employee Emergency Contact Person--}}
-                                    <div class="form-group">
-                                        <label for="inputEcp">Emergency Contact Person</label>
-                                        <input type="text" class="form-control" id="inputEcp" name="emergency_contact_person" aria-describedby="ecpHelp" value="{{ $employees->emergency_contact_person }}">
-                                        <small id="ecpHelp" class="form-text text-muted">Please enter employee emergency contact person.</small>
-                                    </div>
-
-                                    {{--Employee Emergency Contact Person Contact Number--}}
-                                    <div class="form-group">
-                                        <label for="inputEcpcn">Emergency Contact Number</label>
-                                        <input type="text" class="form-control" id="inputEcpcn" name="ecp_contact_number" aria-describedby="ecpcnHelp" value="{{ $employees->ecp_contact_number }}">
-                                        <small id="ecpcnHelp" class="form-text text-muted">Please enter employee emergency contact number.</small>
-                                    </div>
-
                                     {{--Employee Status--}}
                                     <div class="form-group">
                                         <label for="selectStatus">Status</label>
@@ -217,6 +225,20 @@
                                         @endforeach
                                         </select>
                                         <small id="statusHelp" class="form-text text-muted">Please select Status.</small>
+                                    </div>
+
+                                    {{--Employment Start Date--}}
+                                    <div class="form-group">
+                                        <label for="inputEmpstartdate">Employment Date Started</label>
+                                        <input type="date" class="form-control" id="inputEmpstartdate" name="employment_start_date" aria-describedby="empstartdateHelp" required>
+                                        <small id="empstartdateHelp" class="form-text text-muted">Please enter employee date of service started.</small>
+                                    </div>
+
+                                    {{--Employment End Date--}}
+                                    <div class="form-group">
+                                        <label for="inputEmpenddate">Employment Date Ended</label>
+                                        <input type="date" class="form-control" id="inputEmpenddate" name="employment_end_date" aria-describedby="empenddateHelp" value="{{ $employees->employment_end_date }}>
+                                        <small id="empenddateHelp" class="form-text text-muted">Please enter employee date of service ended.</small>
                                     </div>
 
                                     <div class="form-group">

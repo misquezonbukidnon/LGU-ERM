@@ -25,7 +25,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="grid">
-							<div class="grid-header">Employee Information</div>
+							<div class="grid-header">Personal Information</div>
 							<div class="grid-body">
 								<div class="item-wrapper">
 
@@ -71,42 +71,6 @@
                                         <small id="positionHelp" class="form-text text-muted">Please select suffix (if applicable).</small>
                                     </div>
 
-                                    {{--Employee Position--}}
-                                    <div class="form-group">
-                                        <label for="selectPosition">Position</label>
-                                        <select class="custom-select" name="positions_id" required>
-                                        <option value="">Click to select</option>
-                                        @foreach ($positions as $position)
-                                            <option value="{{$position->id}}"> {{ $position->name}}
-                                            </option>
-                                        @endforeach
-                                        </select>
-                                        <small id="positionHelp" class="form-text text-muted">Please select position.</small>
-                                    </div>
-
-                                    {{--Employee Office Designate--}}
-                                    <div class="form-group">
-                                        <label for="selectOffice">Office</label>
-                                        <select class="custom-select" name="offices_id" required>
-                                        <option value="">Click to select</option>
-                                        @foreach ($offices as $office)
-                                            <option value="{{$office->id}}"> {{ $office->name}}
-                                            </option>
-                                        @endforeach
-                                        </select>
-                                        <small id="officeHelp" class="form-text text-muted">Please select office.</small>
-                                    </div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-				        <div class="grid">
-				        	<div class="grid-header">Other Information</div>
-				          	<div class="grid-body">
-					            <div class="item-wrapper">
-
                                     {{--Employee Address--}}
                                     <div class="form-group">
                                         <label for="inputAddress">Address</label>
@@ -135,6 +99,42 @@
                                         <small id="ecpcnHelp" class="form-text text-muted">Please enter employee emergency contact number.</small>
                                     </div>
 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+				        <div class="grid">
+				        	<div class="grid-header">Employment Information</div>
+				          	<div class="grid-body">
+					            <div class="item-wrapper">
+
+                                    {{--Employee Position--}}
+                                    <div class="form-group">
+                                        <label for="selectPosition">Position</label>
+                                        <select class="custom-select" name="positions_id" required>
+                                        <option value="">Click to select</option>
+                                        @foreach ($positions as $position)
+                                            <option value="{{$position->id}}"> {{ $position->name}}
+                                            </option>
+                                        @endforeach
+                                        </select>
+                                        <small id="positionHelp" class="form-text text-muted">Please select position.</small>
+                                    </div>
+
+                                    {{--Employee Office Designate--}}
+                                    <div class="form-group">
+                                        <label for="selectOffice">Office</label>
+                                        <select class="custom-select" name="offices_id" required>
+                                        <option value="">Click to select</option>
+                                        @foreach ($offices as $office)
+                                            <option value="{{$office->id}}"> {{ $office->name}}
+                                            </option>
+                                        @endforeach
+                                        </select>
+                                        <small id="officeHelp" class="form-text text-muted">Please select office.</small>
+                                    </div>
+
                                     {{--Employee Status--}}
                                     <div class="form-group">
                                         <label for="selectStatus">Status</label>
@@ -146,12 +146,19 @@
                                         <small id="statusHelp" class="form-text text-muted">Please select Status.</small>
                                     </div>
 
+                                    {{--Employment Start Date--}}
+                                    <div class="form-group">
+                                        <label for="inputEmpstartdate">Employment Date Started</label>
+                                        <input type="date" class="form-control" id="inputEmpstartdate" name="employment_start_date" aria-describedby="empstartdateHelp" required>
+                                        <small id="empstartdateHelp" class="form-text text-muted">Please enter employee date of service started.</small>
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="image">Image</label>
                                         <input type="file" name="image" class="form-control" required>
 									</div>
 
-									<div align="center">
+                                    <div align="center">
 										<button type="submit" class="btn btn-outline-primary">Submit</button>
 									</div>
 
@@ -160,7 +167,7 @@
 				        </div>
         			</div>
 				</div>
-			</div>
+            </div>
 		</form>
 	</div>
 @endsection

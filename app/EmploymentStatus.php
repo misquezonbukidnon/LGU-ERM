@@ -7,7 +7,7 @@ use App\Employee;
 
 class EmploymentStatus extends Model
 {
-    $fillable = ['name'];
+    protected $fillable = ['name'];
 
     public function employees(){
         return $this->hasMany('App\Employee');

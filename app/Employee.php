@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Office;
 use App\Status;
 use App\Position;
+use App\EmploymentStatus;
 
 class Employee extends Model
 {
@@ -25,11 +26,11 @@ class Employee extends Model
         'image'
     ];
     //
-    
+
     public function offices(){
         return $this->belongsTo('App\Office', 'offices_id');
     }
-    
+
     public function statuses(){
         return $this->belongsTo('App\Status', 'statuses_id');
     }
@@ -38,7 +39,7 @@ class Employee extends Model
         return $this->belongsTo('App\Position', 'positions_id');
     }
 
-    public function employmentStatuses(){
-        return $this>belongsTo('App\EmploymentStatus', 'employment_statuses_id');
+    public function employmentstatuses(){
+        return $this->belongsTo('App\EmploymentStatus', 'employment_statuses_id');
     }
 }

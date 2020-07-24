@@ -254,7 +254,7 @@
                                     {{--Employment Status--}}
                                     <div class="form-group">
                                         <label for="selectStatus">Status</label>
-                                        <select class="custom-select" name="statuses_id"  required>
+                                        <select class="custom-select" name="employment_statuses_id"  required>
                                         <option value="{{ $employees->employmentstatuses->id }}">{{ $employees->employmentstatuses->name }} (Current)</option>
                                         @foreach ($employmentstatuses as $status)
                                             <option value="{{$status->id}}"> {{ $status->name}}

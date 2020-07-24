@@ -28,7 +28,6 @@ class EmployeeController extends Controller
     Public function create(Request $request){
 
         $employees = Employee::with('offices', 'positions', 'statuses', 'employmentstatuses')->get();
-
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();

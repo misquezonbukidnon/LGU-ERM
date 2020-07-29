@@ -98,7 +98,7 @@
                                                 @endif
 											</div>
                                             <div class="form-group">
-												<label for="oldserviceended"><strong>Service Ended </strong></label>
+												<label for="oldserviceended"><strong>End of Contract </strong></label>
 												<br>
                                                 @if($employees->employment_end_date != null)
                                                     <p>{{ $employees->employment_end_date }}</p>

@@ -109,7 +109,7 @@
                                                 @endif
 											</div>
                                             <div class="form-group">
-												<label for="oldserviceended"><strong>Service Ended </strong></label>
+												<label for="oldserviceended"><strong>End of Contract </strong></label>
 												<br>
                                                 @if($employees->employment_end_date != null)
                                                     <p>{{ $employees->employment_end_date }}</p>
@@ -273,7 +273,7 @@
 
                                     {{--Employment End Date--}}
                                     <div class="form-group">
-                                        <label for="inputEmpenddate">Service Ended</label>
+                                        <label for="inputEmpenddate">End of Contract</label>
                                         <input type="date" class="form-control" id="inputEmpenddate" name="employment_end_date" aria-describedby="empenddateHelp">
                                         <small id="empenddateHelp" class="form-text text-muted">Please enter date of service ended.</small>
                                     </div>

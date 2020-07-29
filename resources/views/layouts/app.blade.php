@@ -76,13 +76,13 @@
     </nav>
     {{-- nav end --}}
     {{-- Page Body Starts --}}
-    
+
     <div class="page-body">
       <!-- partial:partials/_sidebar.html -->
       <!-- Sidebar -->
       <div class="sidebar">
         @guest
-          <ul class="navigation-menu">           
+          <ul class="navigation-menu">
             <li>
               <a href="#">
                 <span class="link-title">About</span>
@@ -104,14 +104,14 @@
                       <i class="mdi mdi-login-variant link-icon"></i>
                     </a>
                 </li>
-                @if (Route::has('register'))
+                {{-- @if (Route::has('register'))
                     <li>
                         <a href="{{ route('register') }}">
                           <span class="link-title">Register</span>
                           <i class="mdi mdi-account-plus link-icon"></i>
                         </a>
                     </li>
-                @endif
+                @endif --}}
               </ul>
           </div>
         @elseif(auth()->user()->roles_id == 3)
@@ -143,7 +143,7 @@
             </ul>
           </li>
           {{-- End Create Information Entry --}}
-          
+
           {{-- Create Settings --}}
           <li>
             <a href="#settings" data-toggle="collapse" aria-expanded="false">
@@ -236,7 +236,7 @@
         <div class="page-content-wrapper-inner">
           <div class="viewport-header">
           </div>
-          <div class="content-viewport"> 
+          <div class="content-viewport">
             @include('flash::message')
             @yield('content')
           </div>

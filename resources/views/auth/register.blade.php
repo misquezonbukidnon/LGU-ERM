@@ -16,9 +16,7 @@
 
                             <div class="col-md-6">
                                 <select name="roles_id" id="roles_id" class="form-control">
-                                    @foreach($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                    @endforeach
+                                    <option value="1">Guest</option>
                                 </select>
                             </div>
                         </div>

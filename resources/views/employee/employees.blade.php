@@ -8,8 +8,10 @@
         <th>Suffix</th>
         <th>Position</th>
         <th>Office</th>
+        <th>Classification</th>
         <th>Address</th>
         <th>Contact Number</th>
+        <th>Employment Status</th>
     </tr>
     </thead>
     <tbody>
@@ -22,8 +24,10 @@
             <td>{{ $employee->suffix}}</td>
             <td>{{ $employee->positions->name}}</td>
             <td>{{ $employee->offices->name}}</td>
+            <td>{{ $employee->statuses->name}}</td>
             <td>{{ $employee->address}}</td>
             <td>{{ $employee->contact_number}}</td>
+            <td>{{ $employee->employmentstatuses->name}}</td>
         </tr>
     @endforeach
     </tbody>

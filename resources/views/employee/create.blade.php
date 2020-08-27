@@ -52,7 +52,7 @@
 
                                     {{--Employee Middlename--}}
                                     <div class="form-group">
-                                        <label for="inputMiddlename">Middlename/M.I (Optional)</label>
+                                        <label for="inputMiddlename">Middlename</label>
                                         <input type="text" class="form-control" id="inputMiddlename" name="middlename" aria-describedby="middlenameHelp">
                                         <small id="middlenameHelp" class="form-text text-muted">Please enter employee middlename.</small>
                                     </div>

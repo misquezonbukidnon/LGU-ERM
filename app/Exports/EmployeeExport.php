@@ -25,7 +25,7 @@ Sheet::macro('setOrientation', function (Sheet $sheet, $orientation) {
     $sheet->getDelegate()->getPageSetup()->setOrientation($orientation);
 });
 
-class EmployeeExport implements FromView
+class EmployeeExport implements FromView, ShouldAutoSize
 {
     public function view(): View
     {

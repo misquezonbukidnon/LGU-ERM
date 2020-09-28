@@ -98,8 +98,67 @@
         </div>
     </div>
 </div>
+
+{{-- MODAL --}}
+<div id="fromModal" class="modal fade" role = "dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss ="modal">&times;</button>
+                <h4 class="modal-title">Employee Details</h4>
+            </div>
+            <div class="modal-body">
+                <span id="form_result"></span>
+                {{--Employee Lastname--}}
+                <div class="form-group">
+                    <label class = "control-label col-md-4">Lastname :</label>
+                    <div class="col-md-8">
+                        <input type="text" name="lastname" id="lastname" class="form-control">
+                    </div>
+                </div>
+
+                {{--Employee Firstname--}}
+                <div class="form-group">
+                    <label class = "control-label col-md-4">Firstname :</label>
+                    <div class="col-md-8">
+                        <input type="text" name="firstname" id="firstname" class="form-control">
+                    </div>
+                </div>
+                {{--Employee Image--}}
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <span id="image"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 @endsection
 @section('script')
+
+    <script>
+        $(document).on('click', '.edit', function(){
+            var id = $(this).attr('id');
+            $('#form_result').html('');
+            $.ajax({
+                url:"/view/employee/"+id+/"view",
+                dataType:"json",
+                success:function(html){
+                    $('#lastname').val(html.data.lastname);
+                    $('#firstname').val(html.data.firstname);
+                    $('#image').html("<img src= {{ URL::to ('/') }}/uploads/employee/"+html.data.image+" width='100' height='100' class='img-thumbnail'>");
+                    $('#hidden_id').val(html.data.id);
+                    $('#action_button').val("view");
+                    $('#action').val("view");
+                    $('#formModal').modal('show');
+
+                }
+            })
+        });
+    </script>
 
     <script>
         $(function() {

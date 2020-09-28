@@ -14,6 +14,7 @@ use input;
 use App\Exports\EmployeeExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use Validator;
 
 class EmployeeController extends Controller
 {
@@ -121,7 +122,6 @@ class EmployeeController extends Controller
     Public function edit($id){
 
         $employees = Employee::findOrFail($id);
-
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();
@@ -198,13 +198,20 @@ class EmployeeController extends Controller
     | View - Employee by Employee ID
     */
 
-    Public function view($id){
+    Public function view(Request $request, $id){
+
         $employees = Employee::findOrFail($id);
         $offices = Office::all();
         $positions = Position::all();
         $statuses = Status::all();
         $employmentstatuses = EmploymentStatus::all();
         return view('employee.view', compact('employees', 'offices','positions', 'statuses', 'employmentstatuses'));
+
+        // if($request()->ajax())
+        // {
+        //     $data = Employee::findOrFail($id);
+        //     return response()->json(['data' => $data]);
+        // }
     }
 
     public function export()

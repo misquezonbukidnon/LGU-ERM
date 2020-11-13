@@ -22,18 +22,18 @@
 							<div class="grid-header">Update Position</div>
 								<div class="grid-body">
 									<div class="item-wrapper">
-										<div class="form-group">											
+										<div class="form-group">
 											<label for="inputpositionname">Position</label>
 											<input type="text" class="form-control" id="inputpositionname" name="name" aria-describedby="positionnameHelp" value="{{ $positions->name }}" required>
 											<small id="positionnameHelp" class="form-text text-muted"> Please enter position.</small>
-										</div>	
-										<div align="center">	
+										</div>
+										<div align="center">
 											<button type="submit" class="btn btn-outline-primary">Update</button>
-											<a href="/create/position" class="btn btn-outline-primary">Back</a>
-										</div>		
+											<a href="/home" class="btn btn-outline-primary">Back</a>
+										</div>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>

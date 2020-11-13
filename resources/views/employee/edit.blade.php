@@ -285,7 +285,7 @@
 
 									<div align="center">
 										<button type="submit" class="btn btn-outline-primary">Submit</button>
-										<a href="/create/employee" class="btn btn-outline-primary">Back</a>
+										<a href="/home" class="btn btn-outline-primary">Back</a>
 									</div>
 
 					            </div>

@@ -166,6 +166,7 @@
                 processing: true,
                 serverSide: true,
                 retrieve: true,
+                stateSave: true,
                 ajax: 'home',
                 columns: [
                     { data: 'lastname', name: 'lastname'},
@@ -189,6 +190,7 @@
                     processing: true,
                     serverSide: true,
                     retrieve: true,
+                    stateSave: true,
                     ajax:{
                         url: "{{ route('customsearch.index') }}",
                         data:{filter_office:filter_office, filter_classification:filter_classification, filter_status:filter_status}

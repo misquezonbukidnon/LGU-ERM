@@ -107,14 +107,14 @@
                       <i class="mdi mdi-login-variant link-icon"></i>
                     </a>
                 </li>
-                @if (Route::has('register'))
+                {{-- @if (Route::has('register'))
                     <li>
                         <a href="{{ route('register') }}">
                           <span class="link-title">Register</span>
                           <i class="mdi mdi-account-plus link-icon"></i>
                         </a>
                     </li>
-                @endif
+                @endif --}}
               </ul>
           </div>
         @elseif(auth()->user()->roles_id == 3)

@@ -23,7 +23,6 @@
 								<div class="grid-body">
 									<div class="item-wrapper">
 										<div class="form-group">
-
 											<label for="inputOfficename">Name of Office</label>
 											<input type="text" class="form-control" id="inputOfficename" name="name" aria-describedby="officenameHelp" value="{{ $offices->name }}" required>
 											<small id="officenameHelp" class="form-text text-muted"> Please enter office name.</small>

@@ -220,4 +220,49 @@ class EmployeeController extends Controller
         return Excel::download(new EmployeeExport, "Employees - $date.xlsx");
     }
 
+
+    /*
+    | Edit Image- Employee
+    */
+    Public function editimage($id){
+
+        $employees = Employee::findOrFail($id);
+        $offices = Office::all();
+        $positions = Position::all();
+        $statuses = Status::all();
+        $employmentstatuses = EmploymentStatus::all();
+        return view('employee.updateimg', compact('employees', 'offices','positions', 'statuses', 'employmentstatuses'));
+    }
+
+    /*
+    | Update Image- Employee
+    */
+
+    Public function updateimage(Request $request, $id){
+
+        $data = Employee::findOrFail($id);
+
+
+        $this->validate($request, [
+            'image' => '
+                required|image|mimes:jpg,jpeg,png|max:20000']);
+        if ($request->hasfile('image')) {
+            $image = $request->file('image');
+            $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
+            $resize_image = Image::make($image->getRealPath());
+            $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
+            $data->image = $image_name;
+        } else {
+                return $request;
+                $data->image = '';
+            }
+
+        $data->save();
+
+        flash('Image has been successfully updated to database!')->success();
+        // return back()->withInput();
+        return redirect('/home');
+    }
+
+
 }

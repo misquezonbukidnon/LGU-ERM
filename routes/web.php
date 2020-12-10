@@ -31,6 +31,8 @@ Route::post('/store/employee', 'EmployeeController@store');
 Route::get('/edit/employee/{id}', 'EmployeeController@edit');
 Route::post('/update/employee/{id}', 'EmployeeController@update');
 Route::get('/view/employee/{id}', 'EmployeeController@view');
+Route::get('/editimage/employee/{id}', 'EmployeeController@editimage');
+Route::post('/upimage/employee/{id}', 'EmployeeController@updateimage');
 
 /*
 |	Office Web Routes 	|

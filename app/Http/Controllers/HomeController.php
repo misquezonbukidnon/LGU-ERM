@@ -91,9 +91,9 @@ class HomeController extends Controller
             ->addColumn('action', function($data){
 
                 if(auth()->user()->roles_id == 3)
-                    $button = '<a href="/edit/employee/'.$data->id.'"class="btn btn-sm btn-outline-primary""><span class="mdi mdi-lead-pencil mdi-1x"></span></a>&nbsp;<a href="/view/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary view""><span class="mdi mdi-magnify mdi-1Px"></span></a>&nbsp;<a href="/editimage/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary view""><span class="mdi mdi-account-box mdi-1x"></span></a>';
+                    $button = '<a href="/edit/employee/'.$data->id.'"class="btn btn-sm btn-outline-primary""><span class="mdi mdi-lead-pencil mdi-1x"></span></a>&nbsp;<a href="/view/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary view" target="_blank""><span class="mdi mdi-magnify mdi-1Px"></span></a>&nbsp;<a href="/editimage/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary view""><span class="mdi mdi-account-box mdi-1x"></span></a>';
                 else
-                    $button = '<a href="/view/'.$data->id.'" class="btn btn-sm btn-outline-primary""><span class="mdi mdi-magnify mdi-2x"></span></button>';
+                    $button = '<a href="/view/'.$data->id.'" target="_blank" class="btn btn-sm btn-outline-primary""><span class="mdi mdi-magnify mdi-2x"></span></button>';
                 return $button;
             })
             ->rawColumns(['action'])

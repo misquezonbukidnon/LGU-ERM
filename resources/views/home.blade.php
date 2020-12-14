@@ -166,7 +166,7 @@
                 processing: true,
                 serverSide: true,
                 retrieve: true,
-                stateSave: true,
+                // stateSave: true,
                 ajax: 'home',
                 columns: [
                     { data: 'lastname', name: 'lastname'},

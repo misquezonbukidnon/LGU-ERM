@@ -53,43 +53,42 @@ class HomeController extends Controller
                     ->where('employment_statuses_id','=', $request->filter_status)
                     ->get();
             }elseif (!empty($request->filter_office) && $request->filter_office != 'Office' && $request->filter_classification == 'Classification' && !empty($request->filter_status) && $request->filter_status != 'Status') {
-                // Office, Statuses is not empty
-                $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
-                ->where('offices_id','=', $request->filter_office)
-                ->where('employment_statuses_id','=', $request->filter_status)
-                ->get();
+                    // Office, Statuses is not empty
+                    $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
+                    ->where('offices_id','=', $request->filter_office)
+                    ->where('employment_statuses_id','=', $request->filter_status)
+                    ->get();
             }elseif (!empty($request->filter_office) && $request->filter_office != 'Office' && !empty($request->filter_classification) && $request->filter_classification != 'Classification' && $request->filter_status == 'Status') {
-                // Office, Classification is not empty
-                $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
+                    // Office, Classification is not empty
+                    $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
                     ->where('offices_id','=', $request->filter_office)
                     ->where('statuses_id','=', $request->filter_classification)
                     ->get();
             }elseif (!empty($request->filter_office) && $request->filter_office != 'Office' && $request->filter_classification == 'Classification' && $request->filter_status == 'Status') {
-                // Office is not empty
-                $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
+                    // Office is not empty
+                    $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
                     ->where('offices_id','=', $request->filter_office)
                     ->get();
             }elseif ($request->filter_office == 'Office' && !empty($request->filter_classification) && $request->filter_classification != 'Classification' && $request->filter_status == 'Status') {
-                //filter classification
-                $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
+                    //filter classification
+                    $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
                     ->where('statuses_id','=', $request->filter_classification)
                     ->get();
             }elseif ($request->filter_office == 'Office' && $request->filter_classification == 'Classification' && !empty($request->filter_status) && $request->filter_status != 'Status') {
-                //filter employment status
-                $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
+                    //filter employment status
+                    $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')
                     ->where('employment_statuses_id','=', $request->filter_status)
                     ->get();
             }elseif ($request->filter_office == 'Office' && $request->filter_classification == 'Classification' && $request->filter_status == 'Status'){
-                $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')->get();
+                    $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')->get();
             }
             else{
-                $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')->get();
-                // $data = Employee::with('offices')->get();
+                    $data = Employee::with('offices', 'statuses', 'employmentstatuses', 'positions')->get();
+                    // $data = Employee::with('offices')->get();
             }
 
             return Datatables::of($data)
             ->addColumn('action', function($data){
-
                 if(auth()->user()->roles_id == 3)
                     $button = '<a href="/edit/employee/'.$data->id.'"class="btn btn-sm btn-outline-primary""><span class="mdi mdi-lead-pencil mdi-1x"></span></a>&nbsp;<a href="/view/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary view" target="_blank""><span class="mdi mdi-magnify mdi-1Px"></span></a>&nbsp;<a href="/editimage/employee/'.$data->id.'" class="btn btn-sm btn-outline-primary view""><span class="mdi mdi-account-box mdi-1x"></span></a>';
                 else

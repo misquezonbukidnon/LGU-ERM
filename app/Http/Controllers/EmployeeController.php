@@ -26,6 +26,11 @@ class EmployeeController extends Controller
    /*
     | Page Redirection - Create New Employee
     */
+    public function index(){
+        $employee = Employee::where('image', '=', null)->get();
+        dd($employee);
+    }
+
     Public function create(Request $request){
 
         $employees = Employee::with('offices', 'positions', 'statuses', 'employmentstatuses')->get();

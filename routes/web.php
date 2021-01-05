@@ -26,6 +26,7 @@ Route::resource('customsearch', 'HomeController');
 /*
 |	Employees Web Routes 	|
 */
+Route::get('/index/filter/employee', 'EmployeeController@index');
 Route::get('/create/employee', 'EmployeeController@create');
 Route::post('/store/employee', 'EmployeeController@store');
 Route::get('/edit/employee/{id}', 'EmployeeController@edit');

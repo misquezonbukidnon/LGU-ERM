@@ -143,6 +143,9 @@
               <li>
                 <a href="/create/employee">New Entry</a>
               </li>
+              <li>
+                <a href="/index/filter/employee">No Image</a>
+              </li>
             </ul>
           </li>
           {{-- End Create Information Entry --}}

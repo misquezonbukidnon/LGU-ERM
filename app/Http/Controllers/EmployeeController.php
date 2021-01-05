@@ -93,19 +93,19 @@ class EmployeeController extends Controller
                 Save Image
             */
 
-            $this->validate($request, [
-                'image' => '
-                    required|image|mimes:jpg,jpeg,png|max:20000']);
-            if ($request->hasfile('image')) {
-                $image = $request->file('image');
-                $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
-                $resize_image = Image::make($image->getRealPath());
-                $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
-                $data->image = $image_name;
-            } else {
-                    return $request;
-                    $data->image = '';
-                }
+            // $this->validate($request, [
+            //     'image' => '
+            //         required|image|mimes:jpg,jpeg,png|max:20000']);
+            // if ($request->hasfile('image')) {
+            //     $image = $request->file('image');
+            //     $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
+            //     $resize_image = Image::make($image->getRealPath());
+            //     $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
+            //     $data->image = $image_name;
+            // } else {
+            //         return $request;
+            //         $data->image = '';
+            //     }
 
             $data->save();
 
@@ -176,21 +176,23 @@ class EmployeeController extends Controller
         $data->employment_start_date = $employment_start_date;
         $data->employment_end_date = $employment_end_date;
 
-        $this->validate($request, [
-            'image' => '
-                image|mimes:jpg,jpeg,png|max:20000']);
-        if ($request->hasfile('image')) {
-            $image = $request->file('image');
-            $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
-            $resize_image = Image::make($image->getRealPath());
-            $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
-            $data->image = $image_name;
-            $data->save();
-        } else {
-            $data->save();
-            }
+        $data->save();
+
+        // $this->validate($request, [
+        //     'image' => '
+        //         image|mimes:jpg,jpeg,png|max:20000']);
+        // if ($request->hasfile('image')) {
+        //     $image = $request->file('image');
+        //     $image_name = $data->lastname.'-'.$data->firstname. '.' . $image->getClientOriginalExtension();
+        //     $resize_image = Image::make($image->getRealPath());
+        //     $resize_image->resize(800, 800)->save('uploads/employee/'.$image_name);
+        //     $data->image = $image_name;
+        //     $data->save();
+        // } else {
+        //     $data->save();
+        //     }
+
         flash($employee_number.' has been successfully updated to database!')->success();
-        // return back()->withInput();
         return redirect('/home');
     }
 

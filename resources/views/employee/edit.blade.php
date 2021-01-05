@@ -278,10 +278,10 @@
                                         <small id="empenddateHelp" class="form-text text-muted">Please enter date of service ended.</small>
                                     </div>
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="image">Image</label>
                                         <input type="file" name="image" class="form-control" value="{{ $employees->middlename }}">
-                                    </div>
+                                    </div> --}}
 
 									<div align="center">
 										<button type="submit" class="btn btn-outline-primary">Submit</button>

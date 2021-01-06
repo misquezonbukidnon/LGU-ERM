@@ -12,6 +12,7 @@ use DataTables;
 use Image;
 use input;
 use App\Exports\EmployeeExport;
+use App\Exports\NoImageExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use Validator;
@@ -26,9 +27,12 @@ class EmployeeController extends Controller
    /*
     | Page Redirection - Create New Employee
     */
-    public function index(){
-        $employee = Employee::where('image', '=', null)->get();
-        dd($employee);
+    public function index(Request $request){
+
+        $employees = Employee::with('positions', 'offices')->where('image', '=', null)->get();
+
+       return view('employee.noimage',compact('employees'));
+
     }
 
     Public function create(Request $request){
@@ -225,6 +229,12 @@ class EmployeeController extends Controller
     {
         $date = Carbon::now()->format('M d Y');
         return Excel::download(new EmployeeExport, "Employees - $date.xlsx");
+    }
+
+    public function exportNoImage()
+    {
+        $date = Carbon::now()->format('M d Y');
+        return Excel::download(new NoImageExport, "Employees Without Image - $date.xlsx");
     }
 
 

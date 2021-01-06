@@ -26,6 +26,7 @@
                                 <table id="noimages-data-table" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>Employee ID</th>
                                             <th>Lastname</th>
                                             <th>Firstname</th>
                                             <th>Middlename</th>
@@ -36,6 +37,7 @@
                                     <tbody>
                                        @foreach ($employees as $item)
                                        <tr>
+                                            <td>{{ $item->employee_number }}</td>
                                             <td>{{ $item->lastname }}</td>
                                             <td>{{ $item->firstname }}</td>
                                             <td>{{ $item->middlename }}</td>
@@ -46,6 +48,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th>Employee ID</th>
                                             <th>Lastname</th>
                                             <th>Firstname</th>
                                             <th>Middlename</th>

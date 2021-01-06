@@ -32,6 +32,7 @@
                                             <th>Middlename</th>
                                             <th>Position</th>
                                             <th>Office</th>
+                                            <th align="center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,6 +44,7 @@
                                             <td>{{ $item->middlename }}</td>
                                             <td>{{ $item->positions->name }}</td>
                                             <td>{{ $item->offices->name }}</td>
+                                            <td><a href="/view/employee/{{ $item->id }}" class="btn btn-sm btn-outline-primary""><span class="mdi mdi-magnify mdi-2x"></span></td>
                                         </tr>
                                        @endforeach
                                     </tbody>
@@ -54,6 +56,7 @@
                                             <th>Middlename</th>
                                             <th>Position</th>
                                             <th>Office</th>
+                                            <th align="center">Action</th>
                                         </tr>
                                     </tfoot>
                                 </table>

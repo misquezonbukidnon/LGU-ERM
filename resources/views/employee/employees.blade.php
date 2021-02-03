@@ -11,6 +11,7 @@
         <th>Classification</th>
         <th>Address</th>
         <th>Contact Number</th>
+        <th>Employment Date</th>
         <th>Employment Status</th>
     </tr>
     </thead>
@@ -27,6 +28,7 @@
             <td>{{ $employee->statuses->name}}</td>
             <td>{{ $employee->address}}</td>
             <td>{{ $employee->contact_number}}</td>
+            <td>{{ $employee->employment_start_date}}</td>
             <td>{{ $employee->employmentstatuses->name}}</td>
         </tr>
     @endforeach
